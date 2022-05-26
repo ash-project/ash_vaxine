@@ -4,11 +4,14 @@ defmodule AshVaxine.Test.Comment do
 
   vaxine do
     table "comments"
-    repo AshVaxine.Test.Repo
+    repo(AshVaxine.Test.Repo)
   end
 
   attributes do
-    uuid_primary_key(:id)
+    attribute :id, :string do
+      primary_key?(true)
+      allow_nil?(false)
+    end
   end
 
   actions do

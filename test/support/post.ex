@@ -8,7 +8,7 @@ defmodule AshVaxine.Test.Post do
   end
 
   attributes do
-    uuid_primary_key(:id)
+    attribute(:id, :string, primary_key?: true, allow_nil?: false)
     attribute(:body, :string)
   end
 

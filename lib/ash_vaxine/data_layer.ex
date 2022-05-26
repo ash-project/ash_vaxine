@@ -53,6 +53,11 @@ defmodule AshVaxine.DataLayer do
   end
 
   @impl true
+  def source(resource) do
+    AshVaxine.table(resource) || ""
+  end
+
+  @impl true
   def set_context(_resource, data_layer_query, context) do
     {:ok, Map.update!(data_layer_query, :__ash_bindings__, &Map.put(&1, :context, context))}
   end

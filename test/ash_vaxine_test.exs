@@ -37,7 +37,7 @@ defmodule AshVaxineTest do
     #   |> Ash.Changeset.for_create(:create, %{body: "The Post Body"})
     #   |> Api.create!()
 
-    id = Ash.UUID.generate()
+    id = "bob"
 
     post =
       %Post{}
@@ -48,6 +48,7 @@ defmodule AshVaxineTest do
       from(row in Post,
         where: row.id == ^post.id
       )
+      |> IO.inspect()
 
     refute [] = AshVaxine.Test.Repo.all(query)
 
